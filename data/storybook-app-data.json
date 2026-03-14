@@ -1,0 +1,57 @@
+{
+	"current": 0,
+	"pages": [
+		{
+			"picture": "./pictures/page1.png",
+			"richtext": "\n              <p>\n                Lorem Ipsum is simply dummy text of the printing and typesetting\n                industry. It has survived not only five centuries but also the\n                leap into electronic typesetting.\n              </p>\n            "
+		},
+		{
+			"picture": "./pictures/page2.png",
+			"richtext": "<p>Once upon a time there was a girl called Little Red Riding Hood. She lived with her mother in a village near a forest.</p>"
+		},
+		{
+			"picture": "./pictures/page3.png",
+			"richtext": "<p>One day, Little Red Riding Hood went to visit her grandmother. She took a basket of food with her.</p>"
+		},
+		{
+			"picture": "./pictures/page4.png",
+			"richtext": "<p>On her way, Little Red Riding Hood met a wolf. \"Hello,\" said the wolf.&nbsp; \"Where are you going?\"&nbsp; \"I'm going to visit my grandmother who lives in the forest,\" explained Little Red Riding Hood.</p>"
+		},
+		{
+			"picture": "./pictures/page5.png",
+			"richtext": "<p>The wolf ran to her grandmother's house. He went inside and locked her in the wardrobe! He put on her nightgown and got into her bed.</p>"
+		},
+		{
+			"picture": "./pictures/page6.png",
+			"richtext": "<p>A little later, Little Red Riding Hood came to the house.&nbsp; She knocked on the door, then went inside.</p>"
+		},
+		{
+			"picture": "./pictures/page7.png",
+			"richtext": "<p>Little Red Riding Hood went over to Grandmother's bed.&nbsp; \"Oh Granny, what big ears you have,\" she said.&nbsp; \"All the better to hear you with,\" answered the wolf.</p>"
+		},
+		{
+			"picture": "./pictures/page8.png",
+			"richtext": "<p>\"Oh Granny, what big eyes you have,\" said Little Red Riding Hood.&nbsp; \"All the better to see you with,\" replied the wolf.</p>"
+		},
+		{
+			"picture": "./pictures/page9.png",
+			"richtext": "<p>\"Oh Granny, what big teeth you have,\" said Little Red Riding Hood.&nbsp; \"All the better to eat you with,\" said the wolf.</p>"
+		},
+		{
+			"picture": "./pictures/page10.png",
+			"richtext": "<p>\"Help!\" shouted Little Red Riding Hood as she realized that there was a wolf in her grandmother's bed.&nbsp; She ran out of the house.</p>"
+		},
+		{
+			"picture": "./pictures/page11.png",
+			"richtext": "<p>A woodcutter was nearby. He heard Little Red Riding Hood's scream and ran to the house.</p>"
+		},
+		{
+			"picture": "./pictures/page12.png",
+			"richtext": "<p>The woodcutter hit the wolf over the head. The wolf ran away and Little Red Riding Hood never saw him again.</p>"
+		},
+		{
+			"picture": "./pictures/page13.png",
+			"richtext": "<p>\"The Wolf can never scare anyone again.\"</p>"
+		}
+	]
+}
