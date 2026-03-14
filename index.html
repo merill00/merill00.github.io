@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mavo Storybook CMS</title>
+
+    <link rel="stylesheet" href="https://get.mavo.io/mavo.css" />
+    <script src="https://get.mavo.io/mavo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
+
+    <style>
+      body {
+        font-family: Arial;
+        margin: 40px;
+        text-align: center;
+        background: #f5f5f5;
+      }
+
+      main {
+        max-width: 800px;
+        margin: auto;
+      }
+
+      .book {
+        perspective: 1200px;
+      }
+
+      .page {
+        display: none;
+        background: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        transform-origin: left;
+        transition:
+          transform 0.6s,
+          opacity 0.6s;
+      }
+
+      .page.active {
+        display: block;
+        animation: flip 0.6s;
+      }
+
+      @keyframes flip {
+        from {
+          transform: rotateY(-90deg);
+          opacity: 0;
+        }
+        to {
+          transform: rotateY(0);
+          opacity: 1;
+        }
+      }
+
+      img {
+        width: 100%;
+        max-height: 420px;
+        border-radius: 6px;
+        background: #ddd;
+      }
+
+      nav {
+        margin-bottom: 20px;
+      }
+
+      nav a {
+        display: block;
+        text-align: left;
+        padding: 6px;
+        cursor: pointer;
+      }
+
+      .controls {
+        margin-bottom: 20px;
+      }
+
+      button {
+        padding: 8px 14px;
+        margin: 6px;
+        cursor: pointer;
+      }
+
+      .counter {
+        margin-top: 10px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main
+      mv-app="storyboo-app-data"
+      mv-storage="https://github.com/merill00/mavo-app-data"
+      mv-autosave="5"
+    >
+      <span property="current" hidden>0</span>
+
+      <div class="controls">
+        <button onclick="exportPDF()">Export PDF</button>
+      </div>
+
+      <!-- Table of Contents 
+
+      <nav>
+        <h3>Table of Contents</h3>
+
+        <div property="pages" mv-list>
+          <a mv-list-item mv-action="set(current,index)">
+            [index+1]. [title]
+          </a>
+        </div>
+      </nav>
+      -->
+
+      <!-- Book -->
+
+      <div class="book">
+        <section property="pages" mv-list mv-order>
+          <article mv-list-item class="page [if(index=current,'active','')]">
+            <h2 property="title" >Page Title</h2>
+            <img
+              property="picture"
+              mv-upload-path="pictures"
+              src="./pictures/page1.png"
+              mv-upload="pictures/*"
+              mv-default
+              loading="lazy"
+            />
+            <!-- src="https://picsum.photos/800/400" -->
+            <div class="tinymce" property="richtext" mv-default>
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. It has survived not only five centuries but also the
+                leap into electronic typesetting.
+              </p>
+            </div>
+
+            <!--   hidden="[mv-mode!='edit']" -->
+            <button mv-action="delete(pages); set(current,max(current-1,0))">
+              Delete
+            </button>
+          </article>
+        </section>
+      </div>
+
+      <div class="navigation">
+        <button
+          mv-action="set(current,max(current-1,0))"
+          disabled="[current<=0]"
+        >
+          Prev
+        </button>
+
+        <button
+          mv-action="set(current,min(current+1,count(pages)-1))"
+          disabled="[current>=count(pages)-1]"
+        >
+          Next
+        </button>
+
+        <div class="counter">Page [current+1] of [count(pages)]</div>
+      </div>
+    </main>
+
+    <script>
+      document.addEventListener("keydown", (e) => {
+        const app = Mavo.get("storybook");
+        if (!app) return;
+        let i = app.root.current;
+        let n = app.root.pages.length;
+        if (e.key === "ArrowRight") app.root.current = Math.min(i + 1, n - 1);
+        if (e.key === "ArrowLeft") app.root.current = Math.max(i - 1, 0);
+      });
+
+      function exportPDF() {
+        html2pdf()
+          .set({
+            margin: 10,
+            filename: "storybook.pdf",
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+          })
+          .from(document.querySelector(".book"))
+          .save();
+      }
+    </script>
+    <script src="mavo-tinymce.js"></script>
+  </body>
+</html>
