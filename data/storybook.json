@@ -1,0 +1,25 @@
+{
+	"current": 0,
+	"pages": [
+		{
+			"image": "https://github.com/merill00/storyBook/blob/main/data/images/page1.png",
+			"richtext": ""
+		},
+		{
+			"image": "https://cdn.jsdelivr.net/gh/merill00/storyBook@fa6bcbe5fd265ef60a3dcb3e776e03f2bfc76875/data/images/page2.png",
+			"richtext": "<p style=\"text-align: left;\"><span style=\"text-align: start; text-decoration-thickness: auto; text-decoration-style: solid; font-size: 12pt; line-height: 1;\">Once upon a time there was a girl called Little Red Riding</span><span style=\"caret-color: #000000; font-family: -webkit-standard; font-size: 0px; text-align: start;\">&nbsp;</span><span style=\"text-align: start; text-decoration-thickness: auto; text-decoration-style: solid; font-size: 12pt; line-height: 1;\">Hood. She lived with her mother in a village near a forest.</span></p>"
+		},
+		{
+			"image": "https://cdn.jsdelivr.net/gh/merill00/storyBook@0c54ae63c0a30a31e02c94a8f9b4a530d36aa10e/data/images/page3.png",
+			"richtext": "<p style=\"text-align: left;\">One day, Little Red Riding Hood went to visit her grandmother. She took a basket of food with her.</p>"
+		},
+		{
+			"image": "https://cdn.jsdelivr.net/gh/merill00/storyBook@2c6375b0f2f391d9fee1dd0e4e05a7b9af8cf78b/data/images/page4.png",
+			"richtext": "<p class=\"p1\" style=\"margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-size-adjust: none; font-language-override: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-variant-emoji: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Helvetica; text-align: center;\">On her way, Little Red Riding Hood met a wolf. \"Hello,\" said the wolf.</p>\n<p class=\"p1\" style=\"margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-size-adjust: none; font-language-override: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-variant-emoji: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Helvetica; text-align: center;\">\"Where are you going?\"<span class=\"Apple-converted-space\">&nbsp; </span>\"I'm going to visit my grandmother who lives in the forest,\" explained Little Red Riding Hood.</p>"
+		},
+		{
+			"image": "https://cdn.jsdelivr.net/gh/merill00/storyBook@b6a5196637ffdee8bdb98d505ec9112e11c02014/data/images/page5.png",
+			"richtext": "<p class=\"p1\" style=\"margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-size-adjust: none; font-language-override: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-variant-emoji: normal; font-stretch: normal; font-size: 18px; line-height: normal; font-family: Helvetica; text-align: center;\">The wolf ran to her grandmother's house. He went inside and locked her in the wardrobe! He put on her nightgown and got into her bed.</p>"
+		}
+	]
+}
