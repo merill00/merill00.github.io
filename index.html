@@ -6,8 +6,6 @@
 
     <link rel="stylesheet" href="https://get.mavo.io/mavo.css" />
     <script src="https://get.mavo.io/mavo.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
-
     <style>
       body {
         font-family: Arial;
@@ -96,23 +94,6 @@
     >
       <span property="current" hidden>0</span>
 
-     <!--  <div class="controls">
-        <button onclick="exportPDF()">Export PDF</button>
-      </div> -->
-
-      <!-- Table of Contents 
-
-      <nav>
-        <h3>Table of Contents</h3>
-
-        <div property="pages" mv-list>
-          <a mv-list-item mv-action="set(current,index)">
-            [index+1]. [title]
-          </a>
-        </div>
-      </nav>
-      -->
-
       <!-- Book -->
 
       <div class="book">
@@ -127,7 +108,7 @@
               mv-default
               loading="lazy"
             />
-            <!-- src="https://picsum.photos/800/400" -->
+
             <div class="tinymce" property="richtext" mv-default>
               <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -135,11 +116,6 @@
                 leap into electronic typesetting.
               </p>
             </div>
-
-            <!--   hidden="[mv-mode!='edit']" -->
-           <!--  <button hidden mv-action="delete(pages); set(current,max(current-1,0))">
-              Delete
-            </button> -->
           </article>
         </section>
       </div>
