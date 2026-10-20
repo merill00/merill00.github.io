@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#b92e42">
+  <meta name="description" content="An interactive illustrated children's storybook.">
+  <title>Storybook Reader</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell" id="appShell">
+    <header class="topbar">
+      <a class="brand" href="#" id="homeLink" aria-label="Return to cover">
+        <span class="brand-mark">📕</span><span id="brandTitle">Storybook</span>
+      </a>
+      <div class="top-actions">
+        <button id="printBookBtn" class="quiet-btn" type="button">Print / Save PDF</button>
+        <button id="installBtn" class="quiet-btn hidden" type="button">Install app</button>
+      </div>
+    </header>
+    <main class="book-wrap" id="reader">
+      <section class="book" aria-label="Storybook reader">
+        <div class="book-topline"><span id="storySubtitle">An interactive storybook</span><span id="pageCount">Cover</span></div>
+        <div class="page-layout" id="pageLayout">
+          <div class="illustration-frame"><img id="pageImage" src="images/cover.png" alt="Story illustration"></div>
+          <article class="page-copy">
+            <p class="eyebrow" id="pageEyebrow">An interactive storybook</p>
+            <h1 id="pageHeading">Storybook</h1>
+            <div id="storyText" class="story-text" aria-live="polite"></div>
+            <div id="activity" class="activity hidden"></div>
+          </article>
+        </div>
+        <div class="reader-controls">
+          <button id="prevBtn" class="control-btn secondary" type="button" disabled>← Previous</button>
+          <div class="center-controls"><button id="listenBtn" class="control-btn listen" type="button">▶ Listen</button><button id="stopBtn" class="control-btn secondary" type="button">■ Stop</button></div>
+          <button id="nextBtn" class="control-btn primary" type="button">Start reading →</button>
+        </div>
+        <div class="progress-track" aria-label="Reading progress"><span id="progressBar"></span></div>
+        <p class="hint" id="readerHint">Tip: swipe left or right to turn pages. Use ← and → on a keyboard.</p>
+      </section>
+    </main>
+    <section id="printBook" class="print-book" aria-label="Printable complete book"></section>
+    <footer class="site-footer"><span>Made for little readers</span><span>Reader edition</span></footer>
+  </div>
+  <script src="reader.js"></script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>

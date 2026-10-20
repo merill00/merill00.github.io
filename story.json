@@ -1,0 +1,331 @@
+{
+  "title": "Peter and RoboBot",
+  "subtitle": "An interactive storybook",
+  "version": 1,
+  "cover": "images/cover.png",
+  "pages": [
+    {
+      "id": "p1",
+      "heading": "Peter and RoboBot",
+      "text": "Hello, Peter! Meet RoboBot. RoboBot is a shiny, friendly little Robot who loves to play.",
+      "image": "images/page-01.png",
+      "alt": "Peter and RoboBot smiling",
+      "quiz": [
+        {
+          "q": "What color was Peter’s hat?",
+          "options": [
+            "Bright red",
+            "Green",
+            "Blue"
+          ],
+          "answer": 2
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "heading": "Hit that ball",
+      "text": "Stop that ball! RoboBot watches it go over the wall. Oh no!",
+      "image": "images/page-02.png",
+      "alt": "Peter and RoboBot playing tetherball at home",
+      "quiz": [
+        {
+          "q": "Who is hitting the ball?",
+          "options": [
+            "Grandma",
+            "Peter",
+            "Grandpa"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "heading": "Building a rocket",
+      "text": "Up, up, up go the colorful Magnetic-Tiles! Peter builds a tall rocket.  RoboBot places a red triangle right on top.",
+      "image": "images/page-03.png",
+      "alt": "Peter and RoboBot building a Magnetic-Tiles rocket",
+      "quiz": [
+        {
+          "q": "What color is at the top of the rocket?",
+          "options": [
+            "Red",
+            "Yellow",
+            "Blue"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "heading": "Oh no! The tiles tumble down.",
+      "text": "Oh no! Crash! Crash! Crash!  The tiles tumble down.  Peter laughs, and RoboBot spins its head!",
+      "image": "images/page-04.png",
+      "alt": "Peter and RoboBot's rocket falls down",
+      "quiz": [
+        {
+          "q": "What color tile is highest in the sky?",
+          "options": [
+            "Red",
+            "Green",
+            "Blue"
+          ],
+          "answer": 2
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "heading": "Bubble Time",
+      "text": "RoboBot blows big, shiny bubbles.  Look at them float!  Can Peter pop them all?",
+      "image": "images/page-05.png",
+      "alt": "Peter tries to pop the bubble that RoboBot is making.",
+      "quiz": [
+        {
+          "q": "I spy something red. Can you see what is Red?",
+          "options": [
+            "Red Wagon",
+            "pink flowers",
+            "green grass"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "heading": "Playing hide and seek",
+      "text": "Peter is playing Hide and Seek. Where is RoboBot?  One, two, three... look behind the big green bush!",
+      "image": "images/page-06.png",
+      "alt": "RoboBot is hiding in the backyard",
+      "quiz": [
+        {
+          "q": "Where is RoboBot hiding?",
+          "options": [
+            "A castle",
+            "behind a green bush",
+            "A toy shop"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": "p7",
+      "heading": "Peek-a-boo!",
+      "text": "Peek-a-boo! Peter found RoboBot!  RoboBot makes a happy 'beep, beep' sound.",
+      "image": "images/page-07.png",
+      "alt": "Peter finds RoboBot behind the green bush",
+      "quiz": [
+        {
+          "q": "What did Peter notice hiding behind the green bush?",
+          "options": [
+            "RoboBot",
+            "A birthday cake",
+            "A dancing bear"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "p8",
+      "heading": "To the secret fort",
+      "text": "Peter and RoboBot decide to go to the secret fort.  RoboBot transforms into RoboCar.",
+      "image": "images/page-08.png",
+      "alt": "RoboBot transforms into RoboCar",
+      "quiz": [
+        {
+          "q": "What did RoboBot transform into",
+          "options": [
+            "RoboCar",
+            "Airplane",
+            "Spaceship"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "p9",
+      "heading": "Riding in RoboCar",
+      "text": "RoboCar gives Peter a ride to the secret fort.",
+      "image": "images/page-09.png",
+      "alt": "RoboCar gives Peter a ride to the secret fort",
+      "quiz": [
+        {
+          "q": "Where was Peter going?",
+          "options": [
+            "home",
+            "A toy shop",
+            "The secret fort"
+          ],
+          "answer": 2
+        }
+      ]
+    },
+    {
+      "id": "p10",
+      "heading": "Arriving at the fort",
+      "text": "The sun goes down when RoboCar arrives at the fort so he transforms back into RoboBot.",
+      "image": "images/page-10.png",
+      "alt": "RoboCar arrives at the fort",
+      "quiz": [
+        {
+          "q": "What time of day was it when they arrived at the fort?",
+          "options": [
+            "Sunset",
+            "Breakfast",
+            "Lunchtime"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "p11",
+      "heading": "Together in the cozy fort",
+      "text": "Peter and RoboBot crawl inside a cozy fort filled with warm cozy blankets.",
+      "image": "images/page-11.png",
+      "alt": "Peter and RoboBot together",
+      "quiz": [
+        {
+          "q": "How many laterns are there?",
+          "options": [
+            "2",
+            "0",
+            "15"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "p12",
+      "heading": "Reading about Dinosaurs?",
+      "text": "RoboBot opens a big picture book. RoboBot tells a story about dinosaurs until Peter gets tired.",
+      "image": "images/page-12.png",
+      "alt": "RoboBot reads a book about Dinosaurs",
+      "quiz": [
+        {
+          "q": "What has big floppy ears and a long trunk?",
+          "options": [
+            "TREX",
+            "RoboBot",
+            "Elephant"
+          ],
+          "answer": 2
+        }
+      ]
+    },
+    {
+      "id": "p1792517595564",
+      "heading": "Goodnight, friendly RoboBot",
+      "text": "Goodnight, friendly RoboBot. Goodnight, brave Peter. See you tomorrow for more fun!",
+      "image": "images/page-13.png",
+      "alt": "Add illustration description",
+      "quiz": [
+        {
+          "q": "What happens on this page?",
+          "options": [
+            "RoboBot goes to sleep",
+            "TREX wakes up",
+            "Peter goes to sleep"
+          ],
+          "answer": 2
+        }
+      ]
+    },
+    {
+      "id": "p1792517603408",
+      "heading": "RoboBot goes his secret garage.",
+      "text": "RoboBot converts back into RoboCar and drives back to his secret garage.",
+      "image": "images/page-14.png",
+      "alt": "RoboCar drives back to his secret garage.",
+      "quiz": [
+        {
+          "q": "What is RoboCar doing?",
+          "options": [
+            "going to his secret garage",
+            "going to the moon",
+            "fall asleep with Peter"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "p1792517604325",
+      "heading": "RoboCar arrives at the secret garage",
+      "text": "RoboCar arrives at the secret garage. He converts back into RoboBot to recharge and to sleep.",
+      "image": "images/page-15.png",
+      "alt": "Add illustration description",
+      "quiz": [
+        {
+          "q": "What happens to RoboCar?",
+          "options": [
+            "goes to sleep",
+            "Transforms back into RoboBot",
+            "Eats supper"
+          ],
+          "answer": 1
+        }
+      ]
+    }
+  ],
+  "coverQuiz": [
+    {
+      "q": "Who is this story about?",
+      "options": [
+        "Peter and RoboBot",
+        "A mermaid",
+        "A space robot"
+      ],
+      "answer": 0
+    }
+  ],
+  "schemaVersion": "1.0.0",
+  "id": "peter-roboBot",
+  "author": "Robyn & Lloyd Merithew",
+  "description": "An illustrated, interactive retelling for young readers.",
+  "theme": {
+    "background": "#fff8ec",
+    "accent": "#b92e42",
+    "text": "#3c2930"
+  },
+  "settings": {
+    "narration": true,
+    "spokenQuizFeedback": true,
+    "questionsOnEveryPage": true,
+    "allowUnlimitedRetries": true,
+    "printOnePagePerSheet": true
+  },
+  "coverText": "A story about friendship, fun, and adventure.",
+  "frontCover": {
+    "title": "Peter and RoboBot",
+    "subtitle": "An interactive storybook",
+    "text": "A story about friendship, fun, and adventure.",
+    "image": "images/cover.png",
+    "alt": "Front cover illustration",
+    "quiz": [
+      {
+        "q": "Who is this story about?",
+        "options": [
+          "Peter and RoboBot",
+          "A mermaid",
+          "A space robot"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  "rearCover": {
+    "title": "The End",
+    "text": "An illustrated, interactive retelling for young readers.",
+    "image": "",
+    "alt": "Rear cover illustration",
+    "quiz": []
+  }
+}
