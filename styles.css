@@ -155,7 +155,7 @@ h1{font:800 clamp(1.8rem,3.6vw,3rem)/1.12 'Playfair Display',Georgia,serif;color
   .illustration-frame img {
     width: 100%;
     height: auto;
-    max-height: 55vh;
+    max-height: 35vh;
     aspect-ratio: auto;
     object-fit: contain;
   }
