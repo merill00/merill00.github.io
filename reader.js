@@ -10,6 +10,12 @@
     print:byId("printBookBtn"), printRoot:byId("printBook")
   };
   const state = { story:null, index:-1, utterance:null, wordSpans:[], pendingInstall:null }; // -1 front cover, 0..n-1 story, n rear cover
+  // A malformed/older story JSON may still contain a stale optional cover path.
+  // Hide the image if it cannot load; current publishing also clears missing local paths.
+  ui.image.addEventListener("error", () => {
+    ui.image.removeAttribute("src");
+    ui.image.hidden = true;
+  });
 
   async function loadStory() {
     const response = await fetch("story.json", {cache:"no-store"});
@@ -59,7 +65,6 @@
     ui.activity.classList.add("hidden");
     if (page.quiz && page.quiz.length) renderQuestions(page.quiz);
     ui.previous.disabled = front;
-    ui.next.textContent = front ? "Start reading →" : rear ? "Back to front cover ↺" : (state.index >= state.story.pages.length-1 ? "Read back cover →" : "Next page →");
     ui.progress.style.width = front ? "0%" : rear ? "100%" : `${((state.index+1)/state.story.pages.length)*100}%`;
     stopNarration(false);
   }
@@ -115,7 +120,7 @@
     state.utterance = null;
     state.wordSpans.forEach(span => span.classList.remove("active"));
     state.wordSpans = [];
-    ui.listen.textContent = "▶ Listen";
+    ui.listen.querySelector(".listen-button-label").textContent = "▶ Listen";
   }
 
   function speak() {
@@ -124,10 +129,10 @@
       return;
     }
     if (window.speechSynthesis.speaking && window.speechSynthesis.paused) {
-      window.speechSynthesis.resume(); ui.listen.textContent = "Ⅱ Pause"; return;
+      window.speechSynthesis.resume(); ui.listen.querySelector(".listen-button-label").textContent = "Ⅱ Pause"; return;
     }
     if (window.speechSynthesis.speaking) {
-      window.speechSynthesis.pause(); ui.listen.textContent = "▶ Resume"; return;
+      window.speechSynthesis.pause(); ui.listen.querySelector(".listen-button-label").textContent = "▶ Resume"; return;
     }
     stopNarration();
     const text = currentPage().text || "";
@@ -154,9 +159,9 @@
       if (state.wordSpans[index]) state.wordSpans[index].scrollIntoView({block:"nearest",behavior:"smooth"});
     };
     state.utterance.onend = () => stopNarration(false);
-    state.utterance.onerror = () => { ui.listen.textContent = "▶ Listen"; };
+    state.utterance.onerror = () => { ui.listen.querySelector(".listen-button-label").textContent = "▶ Listen"; };
     window.speechSynthesis.speak(state.utterance);
-    ui.listen.textContent = "Ⅱ Pause";
+    ui.listen.querySelector(".listen-button-label").textContent = "Ⅱ Pause";
   }
 
   function nextPage() {
@@ -208,6 +213,35 @@
   }
 
   function bindEvents() {
+    const menuToggle = byId("readerMenuToggle");
+    const readerMenu = byId("readerMenu");
+    const closeReaderMenu = () => {
+      if (!menuToggle || !readerMenu) return;
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open reader menu");
+      readerMenu.classList.remove("menu-open");
+    };
+    if (menuToggle && readerMenu) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.setAttribute("aria-expanded", String(!isOpen));
+        menuToggle.setAttribute("aria-label", isOpen ? "Open reader menu" : "Close reader menu");
+        readerMenu.classList.toggle("menu-open", !isOpen);
+      });
+      readerMenu.addEventListener("click", event => {
+        if (event.target.closest("button")) closeReaderMenu();
+      });
+      document.addEventListener("click", event => {
+        if (!event.target.closest(".topbar")) closeReaderMenu();
+      });
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape") closeReaderMenu();
+      });
+      window.addEventListener("resize", () => {
+        if (window.matchMedia("(min-width: 761px)").matches) closeReaderMenu();
+      });
+    }
+
     ui.next.addEventListener("click", nextPage);
     ui.previous.addEventListener("click", previousPage);
     ui.listen.addEventListener("click", speak);
@@ -258,3 +292,28 @@
 
   initReader();
 })();
+
+
+
+/* Shared visual/accessibility normalization for Author and Reader control bars. */
+function normalizeReaderControlBar() {
+  document.querySelectorAll(".reader-controls.icon-bar, .reader-controls.icon-toolbar").forEach((bar) => {
+    bar.classList.add("icon-bar");
+    bar.setAttribute("role", "group");
+    bar.setAttribute("aria-label", "Story navigation and narration controls");
+    const labels = {
+      prevBtn: "Previous page",
+      nextBtn: "Next page",
+      listenBtn: "Listen to story",
+      stopBtn: "Stop narration"
+    };
+    Object.entries(labels).forEach(([id, label]) => {
+      const button = bar.querySelector("#" + id);
+      if (button) {
+        button.setAttribute("aria-label", label);
+        button.setAttribute("type", "button");
+      }
+    });
+  });
+}
+document.addEventListener("DOMContentLoaded", normalizeReaderControlBar);
