@@ -11,14 +11,16 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{
 .brand{display:flex;align-items:center;gap:10px;color:var(--red-dark);font-weight:800;text-decoration:none;font-size:1.08rem}
 .brand-mark{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:#f9e1df;font-size:1.3rem}
 .top-actions{display:flex;gap:10px;align-items:center}
+.menu-toggle{display:none;border:1px solid var(--line);background:#fffdf8;color:var(--ink);border-radius:12px;padding:9px 12px;min-height:42px;font-weight:800;align-items:center;justify-content:center;gap:8px}
+.menu-icon{font-size:1.15rem;line-height:1}
 .quiet-btn{border:1px solid var(--line);background:#fffdf8;border-radius:999px;padding:9px 15px;color:var(--ink);font-weight:800}
 .quiet-btn[aria-pressed="true"]{background:#f8e1e1;border-color:#e9b9bf;color:var(--red-dark)}
 .book-wrap{width:100%;padding:clamp(14px,3vw,36px) 14px 20px;flex:1;display:flex;align-items:flex-start;justify-content:center}
 .book{width:min(100%,1100px);background:var(--paper);border:1px solid #f0e6d6;border-radius:24px;box-shadow:var(--shadow);overflow:hidden}
-.book-topline{display:flex;justify-content:space-between;gap:12px;padding:16px clamp(18px,3vw,34px);font-size:.83rem;font-weight:800;color:var(--muted);border-bottom:1px solid #f0e6d6}
+.book-topline{display:flex;justify-content:space-between;gap:12px;padding:12px clamp(18px,3vw,34px);font-size:.83rem;font-weight:800;color:var(--muted);border-top:1px solid #f0e6d6}
 .page-layout{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);align-items:stretch;min-height:430px}
 .illustration-frame{padding:clamp(12px,2.4vw,26px);display:flex;align-items:center;justify-content:center;background:#f6eedf;min-width:0}
-.illustration-frame img{display:block;width:100%;max-height:550px;aspect-ratio:10/7;object-fit:contain;border-radius:16px;box-shadow:0 8px 24px rgba(50,40,25,.1);background:#dff1fa}
+.illustration-frame img{display:block;width:100%;max-height:550px;aspect-ratio:10/7;object-fit:contain;border-radius:16px;box-shadow:0 8px 24px rgba(50,40,25,.1);background:transparent}
 .page-copy{padding:clamp(22px,4vw,48px);display:flex;flex-direction:column;justify-content:center;min-width:0}
 .eyebrow{text-transform:uppercase;letter-spacing:.13em;font-size:.72rem;font-weight:800;color:var(--red);margin:0 0 12px}
 h1,h2,h3{margin-top:0}
@@ -47,8 +49,14 @@ h1{font:800 clamp(1.8rem,3.6vw,3rem)/1.12 'Playfair Display',Georgia,serif;color
 .author-heading{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:24px}.author-heading h2{font:800 clamp(1.6rem,3vw,2.4rem)/1.1 'Playfair Display',Georgia,serif;margin:0 0 8px}.muted{color:var(--muted);margin:0;font-size:.92rem}.small{font-size:.8rem}.author-grid{display:grid;grid-template-columns:270px minmax(0,1fr);gap:24px}.page-list-panel,.edit-form{border:1px solid var(--line);border-radius:16px;padding:16px;min-width:0}.panel-title{display:flex;align-items:center;justify-content:space-between;gap:8px}.panel-title h3,.edit-form h3{font-size:1.05rem;margin-bottom:12px}.small-btn{border:0;background:#f7e0e0;color:var(--red-dark);font-weight:800;border-radius:10px;padding:8px 12px}
 .page-list{list-style:none;padding:0;margin:0 0 14px;display:flex;flex-direction:column;gap:6px;max-height:400px;overflow:auto}.page-list button{width:100%;text-align:left;background:#fffdf8;border:1px solid #eee4d8;border-radius:10px;padding:10px;color:var(--ink)}.page-list button.selected{background:#f9e5e3;border-color:#df9fa7;font-weight:800}.page-list small{display:block;color:var(--muted);margin-top:3px}.stacked-actions{display:flex;flex-direction:column;gap:7px}.wide{width:100%}
 .edit-form{display:flex;flex-direction:column;gap:13px}.edit-form label{display:flex;flex-direction:column;gap:6px;font-size:.88rem;font-weight:800}.edit-form input,.edit-form textarea{width:100%;border:1px solid #d9cfc2;border-radius:10px;padding:11px 12px;background:white;color:var(--ink);font-weight:400}.edit-form textarea{resize:vertical;line-height:1.6}.edit-form input[type=file]{padding:8px}.form-actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.form-actions.wrap{align-items:stretch}.import-label{border:1px solid #e9dfd3;background:#f4eee5;color:#574c4c;border-radius:12px;padding:10px 12px;font-size:.85rem;font-weight:800;display:flex;align-items:center;gap:8px;cursor:pointer}.import-label input{width:190px;border:0;padding:0;background:transparent}.edit-form hr{border:0;border-top:1px solid var(--line);width:100%;margin:8px 0}.status{min-height:1.4em;color:var(--green);font-weight:800}
-@media(max-width:760px){.topbar{height:60px}.page-layout{grid-template-columns:1fr;min-height:0}.illustration-frame{padding:12px 12px 0}.illustration-frame img{max-height: 35vh;aspect-ratio:10/7}.page-copy{padding:20px 22px 26px}.reader-controls{flex-wrap:wrap}.reader-controls>.control-btn{flex:1}.center-controls{order:-1;width:100%;justify-content:center}.center-controls button{flex:1}.reader-controls>.control-btn:first-child{max-width:46%}.reader-controls>.control-btn:last-child{max-width:54%}.author-grid{grid-template-columns:1fr}.page-list{max-height:220px}.author-heading{align-items:flex-start;flex-direction:column}.site-footer{flex-direction:column;text-align:center}.book{border-radius:18px}.hint{line-height:1.5}}
-@media(max-width:420px){.brand span:last-child{display:none}.top-actions{gap:6px}.quiet-btn{padding:8px 10px;font-size:.82rem}.book-topline{font-size:.75rem}.reader-controls{gap:7px;padding:12px 10px}.control-btn,.primary,.secondary,.danger{padding:11px 12px;font-size:.88rem}.page-copy{padding:18px}.story-text{line-height:1.7}.import-label{flex-wrap:wrap}.import-label input{width:100%}}
+@media(max-width:760px){
+.topbar{height:60px;position:sticky;top:0;z-index:20}
+.menu-toggle{display:inline-flex;margin-left:auto}
+.top-actions{display:none;position:absolute;top:calc(100% + 8px);right:12px;z-index:30;min-width:190px;flex-direction:column;align-items:stretch;gap:8px;padding:10px;background:var(--paper);border:1px solid var(--line);border-radius:16px;box-shadow:0 14px 32px rgba(65,42,35,.18)}
+.top-actions.menu-open{display:flex}
+.top-actions .quiet-btn{width:100%;text-align:left;border-radius:11px;padding:12px 14px}
+.page-layout{grid-template-columns:1fr;min-height:0}.page-layout{grid-template-columns:1fr;min-height:0}.illustration-frame{padding:12px 12px 0}.illustration-frame img{max-height: 35vh;aspect-ratio:10/7}.page-copy{padding:20px 22px 26px}.reader-controls{flex-wrap:wrap}.reader-controls>.control-btn{flex:1}.center-controls{order:-1;width:100%;justify-content:center}.center-controls button{flex:1}.reader-controls>.control-btn:first-child{max-width:46%}.reader-controls>.control-btn:last-child{max-width:54%}.author-grid{grid-template-columns:1fr}.page-list{max-height:220px}.author-heading{align-items:flex-start;flex-direction:column}.site-footer{flex-direction:column;text-align:center}.book{border-radius:18px}.hint{line-height:1.5}}
+@media(max-width:420px){.brand span:last-child{display:none}.top-actions{gap:8px}.quiet-btn{padding:10px 12px;font-size:.85rem}.book-topline{font-size:.75rem}.reader-controls{gap:7px;padding:12px 10px}.control-btn,.primary,.secondary,.danger{padding:11px 12px;font-size:.88rem}.page-copy{padding:18px}.story-text{line-height:1.7}.import-label{flex-wrap:wrap}.import-label input{width:100%}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
 @media print{body{background:white}.topbar,.reader-controls,.progress-track,.hint,.site-footer,.author-panel{display:none!important}.book{box-shadow:none;border:0;width:100%;break-after:page}.page-layout{grid-template-columns:1fr 1fr}.illustration-frame img{max-height:9in}.book-topline{border:0}}
 
@@ -159,4 +167,724 @@ h1{font:800 clamp(1.8rem,3.6vw,3rem)/1.12 'Playfair Display',Georgia,serif;color
     aspect-ratio: auto;
     object-fit: contain;
   }
+}
+
+
+/* Streamlined reader controls and status line */
+.reader-controls {
+  padding: 12px clamp(12px, 2.5vw, 24px);
+  gap: 8px;
+  border-top: 1px solid #f0e6d6;
+}
+.reader-controls .control-btn {
+  min-height: 42px;
+  padding: 9px 14px;
+  border-radius: 10px;
+  font-size: .9rem;
+  font-weight: 750;
+  line-height: 1.15;
+  box-shadow: none;
+  transition: background-color .15s ease, transform .12s ease, opacity .15s ease;
+}
+.reader-controls .primary { box-shadow: none; }
+.reader-controls .secondary {
+  border: 1px solid #e7ded2;
+  background: #faf6f0;
+}
+.reader-controls .listen {
+  background: #e7f2e5;
+  color: #285c3d;
+}
+.reader-controls .control-btn:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+.book-topline {
+  padding: 10px clamp(14px, 2.5vw, 24px);
+  border-top: 1px solid #f0e6d6;
+  border-bottom: 0;
+  font-size: .8rem;
+}
+@media (max-width: 760px) {
+  .reader-controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 8px;
+    padding: 12px;
+  }
+  .reader-controls > .control-btn {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    padding: 10px 8px;
+    font-size: .84rem;
+  }
+  .reader-controls .center-controls {
+    order: 0;
+    grid-column: 1 / -1;
+    width: 100%;
+    gap: 8px;
+  }
+  .reader-controls .center-controls button {
+    flex: 1;
+    min-width: 0;
+  }
+  .book-topline {
+    gap: 8px;
+    padding: 10px 14px;
+    font-size: .76rem;
+  }
+}
+
+
+/* Compact mobile navigation controls: prevent oversized and wrapping buttons. */
+@media (max-width: 760px) {
+  .reader-controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "previous next"
+      "listen stop";
+    align-items: stretch;
+    gap: 6px;
+    padding: 8px 10px;
+  }
+  .reader-controls > #prevBtn { grid-area: previous; }
+  .reader-controls > #nextBtn { grid-area: next; }
+  .reader-controls > .center-controls {
+    display: contents;
+  }
+  .reader-controls > .center-controls #listenBtn { grid-area: listen; }
+  .reader-controls > .center-controls #stopBtn { grid-area: stop; }
+  .reader-controls .control-btn,
+  .reader-controls > .control-btn,
+  .reader-controls .center-controls button {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    min-height: 36px;
+    height: 36px;
+    padding: 6px 8px;
+    border-radius: 9px;
+    font-size: .78rem;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+  .reader-controls .center-controls button {
+    flex: initial;
+  }
+}
+@media (max-width: 380px) {
+  .reader-controls {
+    gap: 5px;
+    padding: 7px 8px;
+  }
+  .reader-controls .control-btn,
+  .reader-controls > .control-btn,
+  .reader-controls .center-controls button {
+    min-height: 34px;
+    height: 34px;
+    padding: 5px 6px;
+    font-size: .73rem;
+  }
+}
+
+
+/* Extra-compact phone controls: reduce button footprint and unused row space. */
+@media (max-width: 760px) {
+  .reader-controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "previous next"
+      "listen stop";
+    justify-content: stretch;
+    align-items: center;
+    gap: 5px 6px;
+    padding: 6px 8px;
+  }
+  .reader-controls > #prevBtn { grid-area: previous; }
+  .reader-controls > #nextBtn { grid-area: next; }
+  .reader-controls > .center-controls { display: contents; }
+  .reader-controls > .center-controls #listenBtn { grid-area: listen; }
+  .reader-controls > .center-controls #stopBtn { grid-area: stop; }
+
+  .reader-controls .control-btn,
+  .reader-controls > .control-btn,
+  .reader-controls .center-controls button {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    min-width: 0;
+    max-width: 100%;
+    min-height: 30px;
+    height: 30px;
+    padding: 4px 7px;
+    margin: 0;
+    border-radius: 7px;
+    font-size: .70rem;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+    box-shadow: none;
+  }
+}
+@media (max-width: 420px) {
+  .reader-controls {
+    gap: 4px 5px;
+    padding: 5px 7px;
+  }
+  .reader-controls .control-btn,
+  .reader-controls > .control-btn,
+  .reader-controls .center-controls button {
+    min-height: 28px;
+    height: 28px;
+    padding: 3px 5px;
+    font-size: .66rem;
+    border-radius: 6px;
+  }
+}
+
+/* Compact icon bar inspired by the supplied reference */
+.reader-controls.icon-toolbar {
+  display:flex; align-items:stretch; justify-content:center; gap:4px;
+  padding:7px 10px; border-top:1px solid #f0e6d6;
+}
+.reader-controls.icon-toolbar .icon-control {
+  appearance:none; display:flex; flex:1 1 0; flex-direction:column;
+  align-items:center; justify-content:center; gap:3px; min-width:0;
+  min-height:42px; height:42px; padding:4px 3px; margin:0;
+  border:1px solid transparent; border-radius:8px; background:transparent;
+  color:#635a58; box-shadow:none; font-size:1rem; font-weight:700;
+  line-height:1; cursor:pointer;
+}
+.reader-controls.icon-toolbar .icon-control > span {font-size:1rem;line-height:1}
+.reader-controls.icon-toolbar .icon-control small {display:block;font-size:.62rem;line-height:1.05;font-weight:700;white-space:nowrap}
+.reader-controls.icon-toolbar .primary-icon {background:#314f8f;color:white}
+.reader-controls.icon-toolbar .listen-icon {background:#e7f2e5;color:#285c3d}
+.reader-controls.icon-toolbar .icon-control:disabled {opacity:.38;cursor:not-allowed}
+.reader-controls.icon-toolbar .icon-control:not(:disabled):active {transform:translateY(1px)}
+@media (max-width:760px) {
+  .reader-controls.icon-toolbar {display:flex;gap:3px;padding:5px 8px;grid-template-columns:none;grid-template-areas:none}
+  .reader-controls.icon-toolbar .icon-control {flex:1 1 0;min-width:0;min-height:38px;height:38px;padding:3px 1px;border-radius:7px}
+  .reader-controls.icon-toolbar .icon-control > span {font-size:.92rem}
+  .reader-controls.icon-toolbar .icon-control small {font-size:.58rem}
+}
+
+
+/* Previous and Next use the same navigation-button treatment. */
+.reader-controls.icon-toolbar #prevBtn,
+.reader-controls.icon-toolbar #nextBtn {
+  background: #314f8f;
+  color: #ffffff;
+  border-color: transparent;
+}
+.reader-controls.icon-toolbar #prevBtn:disabled {
+  opacity: .38;
+}
+
+/* White left-pointing triangle for the Previous control */
+.reader-controls.icon-toolbar #prevBtn .previous-triangle {
+  color: #ffffff;
+  font-size: .88rem;
+  line-height: 1;
+}
+
+
+.next-triangle {
+  display: inline-block;
+  color: #fff;
+  margin-right: 0.35rem;
+  font-size: 0.78em;
+  line-height: 1;
+  vertical-align: 0.05em;
+}
+
+
+
+/* Reference-inspired four-panel Reader controls */
+.reader-controls.icon-toolbar {
+  display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:6px;
+  align-items:stretch; width:100%; padding:0; margin:0 0 10px;
+  background:#202333; border-radius:5px; overflow:hidden;
+}
+.reader-controls.icon-toolbar button {
+  position:relative; min-width:0; height:102px; padding:5px 8px;
+  border:1px solid #d7dbe5; border-radius:15px; background:#fff; color:#202333;
+  box-shadow:none; display:flex; align-items:center; justify-content:center; gap:5px;
+  font-family:Arial,Helvetica,sans-serif; font-weight:800;
+  font-size:clamp(15px,2.3vw,25px); line-height:1; overflow:hidden;
+}
+.reader-controls.icon-toolbar button:disabled { opacity:.52; }
+.reader-controls .control-pill { display:inline-flex; align-items:center; justify-content:center;
+  min-height:48px; padding:0 12px; border-radius:30px; font-weight:900; white-space:nowrap; }
+.reader-controls #prevBtn .control-pill { background:#ffb323; color:#292929; }
+.reader-controls #nextBtn .control-pill { background:#80c63f; color:#292929; }
+.reader-controls .control-art { flex:0 0 clamp(56px,7vw,92px); width:clamp(56px,7vw,92px);
+  height:clamp(56px,7vw,92px); border-radius:50%; display:flex; align-items:center; justify-content:center; box-sizing:border-box; }
+.reader-controls .prev-art { order:-1; background:#ffb323; border:4px solid #e28b00; outline:2px solid #e28b00; outline-offset:-8px; }
+.reader-controls .next-art { background:#80c63f; border:4px solid #55a900; outline:2px solid #55a900; outline-offset:-8px; }
+.reader-controls .chevrons { color:#343434; font-size:clamp(26px,4.4vw,49px); font-weight:900; letter-spacing:-8px; transform:scaleX(1.05); padding-right:7px; }
+.reader-controls #nextBtn .chevrons { letter-spacing:-8px; padding-right:0; padding-left:7px; }
+.reader-controls #listenBtn,.reader-controls #stopBtn { flex-direction:column; gap:0; justify-content:flex-end; padding-bottom:0; }
+.reader-controls .listen-art { font-size:clamp(43px,5.5vw,70px); line-height:.95; }
+.reader-controls .control-caption { font-family:"Comic Sans MS","Trebuchet MS",sans-serif; font-size:clamp(16px,2vw,24px); font-weight:700; line-height:1.1; color:#000; padding-bottom:2px; }
+.reader-controls .stop-art { position:relative; display:flex; align-items:center; justify-content:center; width:100%; height:100%; }
+.reader-controls .stop-octagon { display:flex; align-items:center; justify-content:center; width:clamp(62px,7vw,88px); height:clamp(62px,7vw,88px); background:#f10c14; color:white; border:4px solid white; outline:2px solid #222; clip-path:polygon(28% 0,72% 0,100% 28%,100% 72%,72% 100%,28% 100%,0 72%,0 28%); font-size:clamp(18px,2.3vw,28px); font-weight:900; text-shadow:0 1px #900; }
+.reader-controls .music-notes { position:absolute; top:0; right:12%; color:#111; font-size:25px; transform:rotate(-12deg); }
+@media(max-width:600px) {
+ .reader-controls.icon-toolbar { gap:4px; }
+ .reader-controls.icon-toolbar button { height:82px; padding:3px; border-radius:10px; gap:2px; }
+ .reader-controls .control-pill { min-height:33px; padding:0 5px; font-size:clamp(11px,3.1vw,16px); }
+ .reader-controls .control-art { flex-basis:clamp(34px,10vw,56px); width:clamp(34px,10vw,56px); height:clamp(34px,10vw,56px); border-width:3px; }
+ .reader-controls .chevrons { font-size:clamp(18px,5vw,29px); letter-spacing:-5px; padding-right:4px; }
+ .reader-controls #nextBtn .chevrons { letter-spacing:-5px; padding-left:4px; }
+ .reader-controls .listen-art { font-size:clamp(32px,9vw,48px); }
+ .reader-controls .control-caption { font-size:clamp(12px,3.5vw,17px); }
+ .reader-controls .stop-octagon { width:clamp(40px,11vw,56px); height:clamp(40px,11vw,56px); font-size:clamp(13px,3.5vw,18px); border-width:2px; }
+ .reader-controls .music-notes { font-size:17px; right:7%; }
+}
+
+/* Use the supplied artwork as the complete Previous button face. */
+.reader-controls.icon-toolbar #prevBtn {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: hidden;
+}
+.reader-controls.icon-toolbar #prevBtn .prev-button-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Use the supplied artwork as the complete Next button face. */
+.reader-controls.icon-toolbar #nextBtn {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: hidden;
+}
+.reader-controls.icon-toolbar #nextBtn .next-button-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+
+/* Supplied artwork for the Stop button */
+.reader-controls.icon-toolbar #stopBtn { padding:0; border:0; background:transparent; overflow:hidden; }
+.reader-controls.icon-toolbar #stopBtn .stop-button-image { display:block; width:100%; height:100%; object-fit:contain; object-position:center; }
+
+/* Supplied character artwork for the Listen button */
+.reader-controls.icon-toolbar #listenBtn { padding:0; border:0; background:transparent; overflow:hidden; }
+.reader-controls.icon-toolbar #listenBtn .listen-button-image { display:block; width:100%; height:100%; object-fit:contain; object-position:center; }
+
+
+
+/* Unified responsive Author + Reader controls */
+.reader-controls.icon-bar {
+  --controls-gap: 8px;
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+  gap: var(--controls-gap);
+  width: 100%;
+  margin: 0 0 12px;
+  padding: 8px;
+  box-sizing: border-box;
+  background: #202333;
+  border: 1px solid #202333;
+  border-radius: 12px;
+}
+.reader-controls.icon-bar > button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  width: 100%;
+  height: clamp(72px, 9vw, 108px);
+  padding: 3px;
+  margin: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid #d7dbe5;
+  border-radius: 12px;
+  background: #fff;
+  color: #202333;
+  box-shadow: none;
+  line-height: 1;
+  cursor: pointer;
+  transition: opacity .15s ease, transform .15s ease;
+}
+.reader-controls.icon-bar > button:not(:disabled):active { transform: scale(.985); }
+.reader-controls.icon-bar > button:disabled { opacity: .48; cursor: not-allowed; }
+.reader-controls.icon-bar > button:focus-visible { outline: 3px solid #2684ff; outline-offset: 2px; z-index: 1; }
+.reader-controls.icon-bar .prev-button-image,
+.reader-controls.icon-bar .next-button-image,
+.reader-controls.icon-bar .listen-button-image,
+.reader-controls.icon-bar .stop-button-image {
+  display:block; width:100%; height:100%; max-width:100%; max-height:100%;
+  object-fit:contain; object-position:center;
+}
+.reader-controls.icon-bar #prevBtn,
+.reader-controls.icon-bar #nextBtn,
+.reader-controls.icon-bar #listenBtn,
+.reader-controls.icon-bar #stopBtn { padding:3px; background:#fff; }
+@media (max-width:640px) {
+  .reader-controls.icon-bar { --controls-gap:5px; padding:5px; margin-bottom:9px; border-radius:10px; }
+  .reader-controls.icon-bar > button { height:clamp(54px,17vw,82px); padding:2px; border-radius:8px; }
+}
+@media (max-width:360px) {
+  .reader-controls.icon-bar { --controls-gap:3px; padding:3px; }
+  .reader-controls.icon-bar > button { height:52px; padding:1px; border-radius:6px; }
+}
+@media (prefers-reduced-motion:reduce) { .reader-controls.icon-bar > button { transition:none; } }
+
+
+
+/* Requested compact control bar: 1px border and 1px inter-control gap */
+.reader-controls.icon-bar,
+.reader-controls.icon-toolbar {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px !important;
+  padding: 1px !important;
+  border: 1px solid #202333 !important;
+  box-sizing: border-box !important;
+}
+.reader-controls.icon-bar > button,
+.reader-controls.icon-toolbar > button {
+  min-width: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+  border: 1px solid #d7dbe5 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+}
+.reader-controls.icon-bar #nextBtn,
+.reader-controls.icon-toolbar #nextBtn {
+  padding: 0 !important;
+  overflow: hidden !important;
+  background: #fff !important;
+}
+.reader-controls.icon-bar #nextBtn .next-button-image,
+.reader-controls.icon-toolbar #nextBtn .next-button-image {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+@media (max-width: 640px) {
+  .reader-controls.icon-bar,
+  .reader-controls.icon-toolbar {
+    gap: 1px !important;
+    padding: 1px !important;
+  }
+}
+
+
+
+/* Force the Next artwork to be visible in both Author and Reader templates. */
+.reader-controls #nextBtn {
+  display: flex !important;
+  position: relative !important;
+  padding: 0 !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+  background: #fff !important;
+  color: transparent !important;
+  font-size: 0 !important;
+  text-indent: 0 !important;
+  border: 1px solid #d7dbe5 !important;
+  box-shadow: none !important;
+}
+.reader-controls #nextBtn .next-button-image {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: static !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  flex: 1 1 auto !important;
+}
+
+
+
+/* Next artwork visibility fix: do not hide or replace the image with generated button text. */
+.reader-controls #nextBtn {
+  display: flex !important;
+  align-items: stretch !important;
+  justify-content: stretch !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+  text-indent: -9999px;
+}
+.reader-controls #nextBtn .next-button-image {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  pointer-events: none !important;
+}
+
+#nextBtn { position: relative !important; }
+#nextBtn > .next-button-image {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  z-index: 2 !important;
+}
+
+
+
+/* Keep Listen artwork visible above its dynamic label. */
+.reader-controls #listenBtn { display:flex !important; flex-direction:column !important; align-items:center !important; justify-content:center !important; gap:0 !important; padding:2px !important; overflow:hidden !important; white-space:normal !important; }
+.reader-controls #listenBtn > .listen-button-image { position:static !important; display:block !important; flex:1 1 auto !important; width:100% !important; height:72% !important; min-height:0 !important; max-width:100% !important; max-height:calc(100% - 1.2em) !important; object-fit:contain !important; object-position:center bottom !important; visibility:visible !important; opacity:1 !important; }
+.reader-controls #listenBtn > .listen-button-label { display:block !important; flex:0 0 auto !important; width:100% !important; min-height:1.1em !important; color:#202333 !important; font-size:clamp(11px,1.1vw,15px) !important; line-height:1.1 !important; text-align:center !important; white-space:nowrap !important; }
+@media(max-width:640px) {
+ .reader-controls #listenBtn > .listen-button-image { height:68% !important; max-height:calc(100% - 1em) !important; }
+ .reader-controls #listenBtn > .listen-button-label { font-size:clamp(9px,2.5vw,12px) !important; }
+}
+
+/* Reader Listen button: image above the dynamic narration label */
+.reader-controls #listenBtn,
+#listenBtn.icon-control {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  position: relative !important;
+  padding: 2px !important;
+  overflow: hidden !important;
+  font-size: initial !important;
+  line-height: normal !important;
+}
+.reader-controls #listenBtn > .listen-button-image,
+#listenBtn.icon-control > .listen-button-image {
+  display: block !important;
+  position: static !important;
+  flex: 1 1 auto !important;
+  width: 100% !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  max-width: 100% !important;
+  max-height: calc(100% - 1.2em) !important;
+  object-fit: contain !important;
+  object-position: center bottom !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+.reader-controls #listenBtn > .listen-button-label,
+#listenBtn.icon-control > .listen-button-label {
+  display: block !important;
+  flex: 0 0 auto !important;
+  position: static !important;
+  width: 100% !important;
+  min-height: 1.1em !important;
+  margin: 0 !important;
+  color: #202333 !important;
+  font-size: clamp(11px, 1.1vw, 15px) !important;
+  line-height: 1.1 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+@media (max-width: 640px) {
+  .reader-controls #listenBtn > .listen-button-image,
+  #listenBtn.icon-control > .listen-button-image {
+    max-height: calc(100% - 1em) !important;
+  }
+  .reader-controls #listenBtn > .listen-button-label,
+  #listenBtn.icon-control > .listen-button-label {
+    font-size: clamp(9px, 2.5vw, 12px) !important;
+  }
+}
+
+
+
+/* Mobile-browser-inspired bottom toolbar for Author and Reader */
+.reader-controls.icon-bar,
+.reader-controls.icon-toolbar {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin: 0 0 10px !important;
+  padding: 5px 3px !important;
+  background: rgba(255,255,255,.97) !important;
+  border: 1px solid #d7dce4 !important;
+  border-radius: 0 !important;
+  box-shadow: 0 -1px 4px rgba(0,0,0,.06) !important;
+}
+.reader-controls.icon-bar > button,
+.reader-controls.icon-toolbar > button {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 2px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: clamp(44px, 6vw, 58px) !important;
+  margin: 0 !important;
+  padding: 3px 2px !important;
+  color: #3478f6 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  font: inherit !important;
+  line-height: 1 !important;
+  cursor: pointer;
+}
+.reader-controls.icon-bar > button + button,
+.reader-controls.icon-toolbar > button + button {
+  border-left: 1px solid #edf0f4 !important;
+}
+.reader-controls.icon-bar > button:disabled,
+.reader-controls.icon-toolbar > button:disabled {
+  opacity: .4 !important;
+}
+.reader-controls.icon-bar > button:focus-visible,
+.reader-controls.icon-toolbar > button:focus-visible {
+  outline: 2px solid #3478f6 !important;
+  outline-offset: -2px !important;
+}
+.reader-controls .toolbar-icon {
+  display: block !important;
+  width: clamp(20px, 2.7vw, 26px) !important;
+  height: clamp(20px, 2.7vw, 26px) !important;
+  fill: none !important;
+  stroke: currentColor !important;
+  stroke-width: 1.6 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+  flex: 0 0 auto !important;
+}
+.reader-controls .stop-icon { color: #d9343a !important; }
+.reader-controls .toolbar-label {
+  display: block !important;
+  color: #283244 !important;
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  line-height: 1.1 !important;
+  white-space: nowrap !important;
+}
+.reader-controls #prevBtn .prev-button-image,
+.reader-controls #nextBtn .next-button-image,
+.reader-controls #listenBtn .listen-button-image,
+.reader-controls #stopBtn .stop-button-image {
+  display: none !important;
+}
+@media (max-width: 640px) {
+  .reader-controls.icon-bar,
+  .reader-controls.icon-toolbar {
+    padding: 4px 2px !important;
+    margin-bottom: 7px !important;
+  }
+  .reader-controls.icon-bar > button,
+  .reader-controls.icon-toolbar > button {
+    height: 44px !important;
+  }
+  .reader-controls .toolbar-icon {
+    width: 22px !important;
+    height: 22px !important;
+  }
+  .reader-controls .toolbar-label { font-size: 9px !important; }
+}
+
+
+
+/* High-contrast mobile Reader toolbar with supplied SVG artwork */
+.reader-controls.icon-bar,
+.reader-controls.icon-toolbar {
+  display: grid !important; grid-template-columns: repeat(4,minmax(0,1fr)) !important;
+  gap: 0 !important; width: 100% !important; margin: 0 0 10px !important;
+  padding: 4px !important; box-sizing: border-box !important;
+  background: #f4f7fb !important; border: 1px solid #b8c4d5 !important;
+  border-radius: 8px !important; box-shadow: 0 2px 5px rgba(25,40,65,.14) !important;
+}
+.reader-controls.icon-bar > button,.reader-controls.icon-toolbar > button {
+  display:flex !important; flex-direction:column !important; align-items:center !important;
+  justify-content:center !important; gap:3px !important; width:100% !important; min-width:0 !important;
+  height:clamp(48px,6vw,62px) !important; margin:0 !important; padding:4px !important;
+  color:#1d4ed8 !important; background:#fff !important; border:1px solid #d1dae7 !important;
+  border-radius:5px !important; outline:none !important; box-shadow:inset 0 1px 0 rgba(255,255,255,.95) !important;
+  line-height:1 !important; cursor:pointer;
+}
+.reader-controls.icon-bar > button + button,.reader-controls.icon-toolbar > button + button { border-left-width:0 !important; }
+.reader-controls.icon-bar > button:disabled,.reader-controls.icon-toolbar > button:disabled { opacity:.45 !important; }
+.reader-controls.icon-bar > button:focus-visible,.reader-controls.icon-toolbar > button:focus-visible { outline:2px solid #2563eb !important; outline-offset:-2px !important; }
+.reader-controls .toolbar-icon-image { display:block !important; width:25px !important; height:25px !important; max-width:100% !important; max-height:100% !important; object-fit:contain !important; object-position:center !important; opacity:1 !important; visibility:visible !important; flex:0 0 auto !important; }
+.reader-controls .toolbar-label { display:block !important; color:#172033 !important; font-size:11px !important; font-weight:600 !important; line-height:1.1 !important; white-space:nowrap !important; }
+@media(max-width:640px) {
+ .reader-controls.icon-bar,.reader-controls.icon-toolbar { padding:3px !important; border-radius:6px !important; }
+ .reader-controls.icon-bar > button,.reader-controls.icon-toolbar > button { height:48px !important; padding:3px !important; }
+ .reader-controls .toolbar-icon-image { width:23px !important; height:23px !important; }
+ .reader-controls .toolbar-label { font-size:10px !important; }
+}
+
+
+
+/* Align all toolbar SVG icons consistently, including the Next arrow. */
+.reader-controls.icon-bar #prevBtn,
+.reader-controls.icon-toolbar #prevBtn,
+.reader-controls.icon-bar #nextBtn,
+.reader-controls.icon-toolbar #nextBtn,
+.reader-controls.icon-bar #listenBtn,
+.reader-controls.icon-toolbar #listenBtn,
+.reader-controls.icon-bar #stopBtn,
+.reader-controls.icon-toolbar #stopBtn {
+  align-items: center !important;
+  justify-content: center !important;
+}
+.reader-controls.icon-bar #nextBtn,
+.reader-controls.icon-toolbar #nextBtn {
+  position: relative !important;
+}
+.reader-controls.icon-bar #nextBtn > .toolbar-icon-image,
+.reader-controls.icon-toolbar #nextBtn > .toolbar-icon-image {
+  display: block !important;
+  position: static !important;
+  margin: 0 auto !important;
+  transform: none !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  align-self: center !important;
 }
