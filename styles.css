@@ -888,3 +888,26 @@ h1{font:800 clamp(1.8rem,3.6vw,3rem)/1.12 'Playfair Display',Georgia,serif;color
   object-position: center !important;
   align-self: center !important;
 }
+
+/* Mobile activity-question disclosure control */
+.activity-toggle { display:none; }
+@media (max-width: 760px) {
+  .activity-toggle:not([hidden]) {
+    display:flex; align-items:center; justify-content:space-between;
+    width:100%; margin-top:14px; padding:12px 14px;
+    border:1px solid #eadfcf; border-radius:12px;
+    background:#fff9e9; color:inherit; font:inherit; font-weight:700;
+    text-align:left; cursor:pointer;
+  }
+  .activity.activity-collapsed { display:none !important; }
+  .activity-toggle span { transition:transform .15s ease; }
+  .activity-toggle[aria-expanded="true"] span { transform:rotate(180deg); }
+}
+@media (min-width: 761px) { .activity-toggle { display:none !important; } }
+
+
+@media (max-width: 767px) {
+  .site-footer {
+    display: none !important;
+  }
+}
