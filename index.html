@@ -1,141 +1,58 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, viewport-fit=cover"
-    />
-    <meta name="theme-color" content="#b92e42" />
-    <meta
-      name="description"
-      content="An interactive illustrated children's storybook."
-    />
-    <title>Storybook Reader</title>
-    <link rel="icon" href="./favicon.ico" sizes="any" />
-    <link rel="manifest" href="manifest.json" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="app-shell" id="appShell">
-      <header class="topbar">
-        <a class="brand" href="#" id="homeLink" aria-label="Return to cover">
-          <span class="brand-mark">📕</span
-          ><span id="brandTitle">Storybook</span>
-        </a>
-        <button
-          id="readerMenuToggle"
-          class="menu-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="readerMenu"
-          aria-label="Open reader menu"
-        >
-          <span class="menu-icon" aria-hidden="true">☰</span
-          ><span class="menu-label">Menu</span>
-        </button>
-        <div class="top-actions" id="readerMenu">
-          <button id="printBookBtn" class="quiet-btn" type="button">
-            Print / Save PDF
-          </button>
-          <button id="installBtn" class="quiet-btn hidden" type="button">
-            Install app
-          </button>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#b92e42">
+  <meta name="description" content="An interactive illustrated children's storybook.">
+  <title>Storybook Reader</title>
+  <link rel="icon" href="./favicon.ico" sizes="any">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell" id="appShell">
+    <header class="topbar">
+      <a class="brand" href="#" id="homeLink" aria-label="Return to cover">
+        <span class="brand-mark">📕</span><span id="brandTitle">Storybook</span>
+      </a>
+      <button id="readerMenuToggle" class="menu-toggle" type="button"
+        aria-expanded="false" aria-controls="readerMenu" aria-label="Open reader menu">
+        <span class="menu-icon" aria-hidden="true">☰</span><span class="menu-label">Menu</span>
+      </button>
+      <div class="top-actions" id="readerMenu">
+        <button id="printBookBtn" class="quiet-btn" type="button">Print / Save PDF</button>
+        <button id="installBtn" class="quiet-btn hidden" type="button">Install app</button>
+      </div>
+    </header>
+    <main class="book-wrap" id="reader">
+      <section class="book" aria-label="Storybook reader">
+        <div class="page-layout" id="pageLayout">
+          <div class="illustration-frame"><img id="pageImage" alt="Story illustration" hidden></div>
+          <article class="page-copy">
+            <p class="eyebrow" id="pageEyebrow">An interactive storybook</p>
+            <h1 id="pageHeading">Storybook</h1>
+            <div id="storyText" class="story-text" aria-live="polite"></div>
+            <button id="activityToggle" class="activity-toggle" type="button" aria-expanded="false" aria-controls="activity" hidden>Show activity questions <span aria-hidden="true">▾</span></button>
+            <div id="activity" class="activity hidden"></div>
+          </article>
         </div>
-      </header>
-      <main class="book-wrap" id="reader">
-        <section class="book" aria-label="Storybook reader">
-          <div class="page-layout" id="pageLayout">
-            <div class="illustration-frame">
-              <img id="pageImage" alt="Story illustration" hidden />
-            </div>
-            <article class="page-copy">
-              <p class="eyebrow" id="pageEyebrow">An interactive storybook</p>
-              <h1 id="pageHeading">Storybook</h1>
-              <div id="storyText" class="story-text" aria-live="polite"></div>
-              <div id="activity" class="activity hidden"></div>
-            </article>
-          </div>
-          <div
-            class="reader-controls icon-bar"
-            role="group"
-            aria-label="Story navigation and narration"
-          >
-            <button
-              id="prevBtn"
-              class="icon-control"
-              type="button"
-              aria-label="Previous page"
-              title="Previous page"
-              disabled
-            >
-              <img
-                class="toolbar-icon toolbar-icon-image"
-                src="./images/left-arrow.svg"
-                alt=""
-              />
-            </button>
-            <button
-              id="nextBtn"
-              class="icon-control primary-icon"
-              type="button"
-              aria-label="Start reading"
-              title="Start reading"
-            >
-              <img
-                class="toolbar-icon toolbar-icon-image"
-                src="./images/right-arrow.svg"
-                alt=""
-              />
-            </button>
-            <button
-              id="listenBtn"
-              class="icon-control listen-icon"
-              type="button"
-              aria-label="Listen"
-              title="Listen"
-            >
-              <img
-                class="toolbar-icon toolbar-icon-image"
-                src="./images/listen.svg"
-                alt=""
-              /><span class="toolbar-label listen-button-label">Listen</span>
-            </button>
-            <button
-              id="stopBtn"
-              class="icon-control"
-              type="button"
-              aria-label="Stop narration"
-              title="Stop narration"
-            >
-              <img
-                class="toolbar-icon toolbar-icon-image"
-                src="./images/stop.svg"
-                alt=""
-              />
-            </button>
-          </div>
-          <div class="book-topline">
-            <span id="storySubtitle">An interactive storybook</span
-            ><span id="pageCount">Cover</span>
-          </div>
-          <div class="progress-track" aria-label="Reading progress">
-            <span id="progressBar"></span>
-          </div>
-          <p class="hint" id="readerHint">
-            Tip: swipe left or right to turn pages. Use ← and → on a keyboard.
-          </p>
-        </section>
-      </main>
-      <section
-        id="printBook"
-        class="print-book"
-        aria-label="Printable complete book"
-      ></section>
-      <!-- <footer class="site-footer"><span>Made for little readers</span><span>Reader edition</span></footer> -->
-    </div>
-    <script src="reader.js"></script>
-  <!-- Code injected by live-server -->
+        <div class="reader-controls icon-bar" role="group" aria-label="Story navigation and narration">
+          <button id="prevBtn" class="icon-control" type="button" aria-label="Previous page" title="Previous page" disabled><img class="toolbar-icon toolbar-icon-image" src="./images/left-arrow.svg" alt=""></button>
+          <button id="nextBtn" class="icon-control primary-icon" type="button" aria-label="Start reading" title="Start reading"><img class="toolbar-icon toolbar-icon-image" src="./images/right-arrow.svg" alt=""></button>
+          <button id="listenBtn" class="icon-control listen-icon" type="button" aria-label="Listen" title="Listen"><img class="toolbar-icon toolbar-icon-image" src="./images/listen.svg" alt=""><span class="toolbar-label listen-button-label">Listen</span></button>
+          <button id="stopBtn" class="icon-control" type="button" aria-label="Stop narration" title="Stop narration"><img class="toolbar-icon toolbar-icon-image" src="./images/stop.svg" alt=""></button>
+        </div>
+        <div class="book-topline"><span id="storySubtitle">An interactive storybook</span><span id="pageCount">Cover</span></div>
+        <div class="progress-track" aria-label="Reading progress"><span id="progressBar"></span></div>
+        <p class="hint" id="readerHint">Tip: swipe left or right to turn pages. Use ← and → on a keyboard.</p>
+      </section>
+    </main>
+    <section id="printBook" class="print-book" aria-label="Printable complete book"></section>
+    <footer class="site-footer"><span>Made for little readers</span><span>Reader edition</span></footer>
+  </div>
+  <script src="reader.js"></script>
+<!-- Code injected by live-server -->
 <script>
 	// <![CDATA[  <-- For SVG support
 	if ('WebSocket' in window) {
