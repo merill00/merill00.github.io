@@ -1,5 +1,5 @@
 const CACHE_NAME = "published-story-reader-v1";
-const SHELL = ["./", "./index.html", "./styles.css", "./reader.js", "./story.json", "./manifest.json", "./images/icon-192.png", "./images/icon-512.png"];
+const SHELL = ["./", "./index.html", "./styles.css", "./reader.js", "./story.json", "./manifest.json", "./favicon.ico", "./images/icon-192.png", "./images/icon-512.png"];
 self.addEventListener("install", event => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE_NAME);
