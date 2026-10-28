@@ -2,13 +2,13 @@
   "title": "Peter and RoboBot",
   "subtitle": "An interactive storybook",
   "version": 1,
-  "cover": "images/cover.png",
+  "cover": "stories/peter-robobot/images/cover.png",
   "pages": [
     {
       "id": "p1",
       "heading": "Peter and RoboBot",
       "text": "Hello, Peter! Meet RoboBot. RoboBot is a shiny, friendly little Robot who loves to play.",
-      "image": "images/page-01.png",
+      "image": "stories/peter-robobot/images/page-01.png",
       "alt": "Peter and RoboBot smiling",
       "quiz": [
         {
@@ -26,7 +26,7 @@
       "id": "p2",
       "heading": "Hit that ball",
       "text": "Stop that ball! RoboBot watches it go over the wall. Oh no!",
-      "image": "images/page-02.png",
+      "image": "stories/peter-robobot/images/page-02.png",
       "alt": "Peter and RoboBot playing tetherball at home",
       "quiz": [
         {
@@ -43,9 +43,9 @@
     {
       "id": "p3",
       "heading": "Building a rocket",
-      "text": "Up, up, up go the colorful Magnetic-Tiles! Peter builds a tall rocket.  RoboBot places a red triangle right on top.",
-      "image": "images/page-03.png",
-      "alt": "Peter and RoboBot building a Magnetic-Tiles rocket",
+      "text": "Up, up, up go the colorful Magna-Tiles! Peter builds a tall rocket.  RoboBot places a red triangle right on top.",
+      "image": "stories/peter-robobot/images/page-03.png",
+      "alt": "Peter and RoboBot building a Magna-Tiles rocket",
       "quiz": [
         {
           "q": "What color is at the top of the rocket?",
@@ -62,7 +62,7 @@
       "id": "p4",
       "heading": "Oh no! The tiles tumble down.",
       "text": "Oh no! Crash! Crash! Crash!  The tiles tumble down.  Peter laughs, and RoboBot spins its head!",
-      "image": "images/page-04.png",
+      "image": "stories/peter-robobot/images/page-04.png",
       "alt": "Peter and RoboBot's rocket falls down",
       "quiz": [
         {
@@ -80,7 +80,7 @@
       "id": "p5",
       "heading": "Bubble Time",
       "text": "RoboBot blows big, shiny bubbles.  Look at them float!  Can Peter pop them all?",
-      "image": "images/page-05.png",
+      "image": "stories/peter-robobot/images/page-05.png",
       "alt": "Peter tries to pop the bubble that RoboBot is making.",
       "quiz": [
         {
@@ -98,7 +98,7 @@
       "id": "p6",
       "heading": "Playing hide and seek",
       "text": "Peter is playing Hide and Seek. Where is RoboBot?  One, two, three... look behind the big green bush!",
-      "image": "images/page-06.png",
+      "image": "stories/peter-robobot/images/page-06.png",
       "alt": "RoboBot is hiding in the backyard",
       "quiz": [
         {
@@ -116,7 +116,7 @@
       "id": "p7",
       "heading": "Peek-a-boo!",
       "text": "Peek-a-boo! Peter found RoboBot!  RoboBot makes a happy 'beep, beep' sound.",
-      "image": "images/page-07.png",
+      "image": "stories/peter-robobot/images/page-07.png",
       "alt": "Peter finds RoboBot behind the green bush",
       "quiz": [
         {
@@ -134,7 +134,7 @@
       "id": "p8",
       "heading": "To the secret fort",
       "text": "Peter and RoboBot decide to go to the secret fort.  RoboBot transforms into RoboCar.",
-      "image": "images/page-08.png",
+      "image": "stories/peter-robobot/images/page-08.png",
       "alt": "RoboBot transforms into RoboCar",
       "quiz": [
         {
@@ -152,7 +152,7 @@
       "id": "p9",
       "heading": "Riding in RoboCar",
       "text": "RoboCar gives Peter a ride to the secret fort.",
-      "image": "images/page-09.png",
+      "image": "stories/peter-robobot/images/page-09.png",
       "alt": "RoboCar gives Peter a ride to the secret fort",
       "quiz": [
         {
@@ -170,7 +170,7 @@
       "id": "p10",
       "heading": "Arriving at the fort",
       "text": "The sun goes down when RoboCar arrives at the fort so he transforms back into RoboBot.",
-      "image": "images/page-10.png",
+      "image": "stories/peter-robobot/images/page-10.png",
       "alt": "RoboCar arrives at the fort",
       "quiz": [
         {
@@ -188,7 +188,7 @@
       "id": "p11",
       "heading": "Together in the cozy fort",
       "text": "Peter and RoboBot crawl inside a cozy fort filled with warm cozy blankets.",
-      "image": "images/page-11.png",
+      "image": "stories/peter-robobot/images/page-11.png",
       "alt": "Peter and RoboBot together",
       "quiz": [
         {
@@ -206,7 +206,7 @@
       "id": "p12",
       "heading": "Reading about Dinosaurs?",
       "text": "RoboBot opens a big picture book. RoboBot tells a story about dinosaurs until Peter gets tired.",
-      "image": "images/page-12.png",
+      "image": "stories/peter-robobot/images/page-12.png",
       "alt": "RoboBot reads a book about Dinosaurs",
       "quiz": [
         {
@@ -221,54 +221,54 @@
       ]
     },
     {
-      "id": "p1792517595564",
-      "heading": "Goodnight, friendly RoboBot",
-      "text": "Goodnight, friendly RoboBot. Goodnight, brave Peter. See you tomorrow for more fun!",
-      "image": "images/page-13.png",
-      "alt": "Add illustration description",
+      "id": "p13",
+      "heading": "Good Night!",
+      "text": "Goodnight, friendly RoboBot. Goodnight, brave\nPeter. See you tomorrow for more fun!",
+      "image": "stories/peter-robobot/images/Page-13.png",
+      "alt": "Peter going to sleep",
       "quiz": [
         {
-          "q": "What happens on this page?",
+          "q": "Who is still awake?",
           "options": [
-            "RoboBot goes to sleep",
-            "TREX wakes up",
-            "Peter goes to sleep"
-          ],
-          "answer": 2
-        }
-      ]
-    },
-    {
-      "id": "p1792517603408",
-      "heading": "RoboBot goes his secret garage.",
-      "text": "RoboBot converts back into RoboCar and drives back to his secret garage.",
-      "image": "images/page-14.png",
-      "alt": "RoboCar drives back to his secret garage.",
-      "quiz": [
-        {
-          "q": "What is RoboCar doing?",
-          "options": [
-            "going to his secret garage",
-            "going to the moon",
-            "fall asleep with Peter"
+            "TREX",
+            "Peter",
+            "The Moon"
           ],
           "answer": 0
         }
       ]
     },
     {
-      "id": "p1792517604325",
-      "heading": "RoboCar arrives at the secret garage",
-      "text": "RoboCar arrives at the secret garage. He converts back into RoboBot to recharge and to sleep.",
-      "image": "images/page-15.png",
-      "alt": "Add illustration description",
+      "id": "p14",
+      "heading": "Back to the Secret Garage",
+      "text": "RoboBot converts back into RoboCar and drives back to his secret garage.",
+      "image": "stories/peter-robobot/images/Page-14.png",
+      "alt": "RoboCar driving away",
       "quiz": [
         {
-          "q": "What happens to RoboCar?",
+          "q": "Where is RoboBot?",
           "options": [
-            "goes to sleep",
-            "Transforms back into RoboBot",
-            "Eats supper"
+            "He walked home",
+            "He is afraid of the dark",
+            "He converted into RoboCar"
+          ],
+          "answer": 2
+        }
+      ]
+    },
+    {
+      "id": "p15",
+      "heading": "RoboBot needs sleep too!",
+      "text": "RoboCar arrives at the secret garage. He converts back into RoboBot to recharge and to sleep.",
+      "image": "stories/peter-robobot/images/Page-15.png",
+      "alt": "RoboCar converts back into RoboBot at the secret garage",
+      "quiz": [
+        {
+          "q": "What happens on this page?",
+          "options": [
+            "RoboBot is inside a spaceship",
+            "RoboCar converts back into RoboBot at the secret garage",
+            "RoboBot is at a factory"
           ],
           "answer": 1
         }
@@ -307,7 +307,7 @@
     "title": "Peter and RoboBot",
     "subtitle": "An interactive storybook",
     "text": "A story about friendship, fun, and adventure.",
-    "image": "images/cover.png",
+    "image": "stories/peter-robobot/images/cover.png",
     "alt": "Front cover illustration",
     "quiz": [
       {
@@ -324,8 +324,9 @@
   "rearCover": {
     "title": "The End",
     "text": "An illustrated, interactive retelling for young readers.",
-    "image": "images/rear-cover.png",
+    "image": "stories/peter-robobot/images/rear-cover.png",
     "alt": "Rear cover illustration",
     "quiz": []
-  }
+  },
+  "favicon": "favicon.ico"
 }
