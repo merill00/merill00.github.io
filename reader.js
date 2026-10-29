@@ -6,7 +6,7 @@
     image:byId("pageImage"), heading:byId("pageHeading"), text:byId("storyText"),
     eyebrow:byId("pageEyebrow"), subtitle:byId("storySubtitle"), count:byId("pageCount"),
     next:byId("nextBtn"), previous:byId("prevBtn"), listen:byId("listenBtn"),
-    stop:byId("stopBtn"), activity:byId("activity"), progress:byId("progressBar"),
+    stop:byId("stopBtn"), activity:byId("activity"), activityToggle:byId("activityToggle"), progress:byId("progressBar"),
     print:byId("printBookBtn"), printRoot:byId("printBook")
   };
   const state = { story:null, index:-1, utterance:null, wordSpans:[], pendingInstall:null }; // -1 front cover, 0..n-1 story, n rear cover
@@ -49,9 +49,9 @@
       ui.image.hidden = true;
     }
     ui.image.alt = page.alt || page.heading || "Story illustration";
-    ui.heading.textContent = front ? (page.title ?? page.heading ?? (state.story.frontCover ? "" : state.story.title || "Storybook")) : rear ? (page.title ?? page.heading ?? (state.story.rearCover ? "" : "The End")) : (page.heading || `Page ${state.index+1}`);
+    ui.heading.textContent = front ? (page.title ?? page.heading ?? (state.story.frontCover ? "" : state.story.title || "Storybook")) : rear ? (page.title ?? page.heading ?? "") : (page.heading || `Page ${state.index+1}`);
     ui.heading.hidden = cover && !ui.heading.textContent.trim();
-    ui.eyebrow.textContent = front ? (page.subtitle || (state.story.author ? `A story by ${state.story.author}` : "An interactive storybook")) : rear ? "The End" : `Page ${state.index+1}`;
+    ui.eyebrow.textContent = front ? (page.subtitle || (state.story.author ? `A story by ${state.story.author}` : "An interactive storybook")) : rear ? "" : `Page ${state.index+1}`;
     ui.subtitle.textContent = cover ? "" : (state.story.subtitle || state.story.description || "An interactive storybook");
     ui.subtitle.hidden = cover;
     ui.count.textContent = front ? "Front cover" : rear ? "Back cover" : `Page ${state.index+1} of ${state.story.pages.length}`;
@@ -63,7 +63,16 @@
     }
     ui.activity.replaceChildren();
     ui.activity.classList.add("hidden");
-    if (page.quiz && page.quiz.length) renderQuestions(page.quiz);
+    if (page.quiz && page.quiz.length) {
+      renderQuestions(page.quiz);
+      ui.activity.classList.add("activity-collapsed");
+      ui.activityToggle.hidden = false;
+      ui.activityToggle.setAttribute("aria-expanded", "false");
+      ui.activityToggle.innerHTML = 'Show activity questions <span aria-hidden="true">▾</span>';
+    } else {
+      ui.activityToggle.hidden = true;
+      ui.activity.classList.remove("activity-collapsed");
+    }
     ui.previous.disabled = front;
     ui.progress.style.width = front ? "0%" : rear ? "100%" : `${((state.index+1)/state.story.pages.length)*100}%`;
     stopNarration(false);
@@ -199,7 +208,7 @@
     };
     const story = state.story;
     const front = story.frontCover || {title:story.title,text:story.coverText||story.subtitle||"",image:story.cover,alt:story.coverAlt,quiz:story.coverQuiz||[]};
-    const rear = story.rearCover || {title:"The End",text:story.description||"Thanks for reading!",image:"",alt:"Rear cover illustration",quiz:[]};
+    const rear = story.rearCover || {title:null,text:null,image:"",alt:"Rear cover illustration",quiz:[]};
     appendPrintPage(front.title||story.title, [front.subtitle,front.text].filter(Boolean).join("\n\n"), front.image||story.cover, front.alt||story.coverAlt, front.quiz||[], true);
     story.pages.forEach((page, index) => appendPrintPage(`${index+1}. ${page.heading}`, page.text, page.image, page.alt, page.quiz || [], false));
     appendPrintPage(rear.title||"", rear.text||"", rear.image, rear.alt||"Rear cover illustration", rear.quiz||[], true);
@@ -212,7 +221,26 @@
     window.print();
   }
 
+  
+  function positionControlsForMobileActivity() {
+    const controls = document.querySelector(".reader-controls.icon-bar");
+    const pageLayout = document.getElementById("pageLayout");
+    const pageCopy = document.querySelector(".page-copy");
+    const toggle = document.getElementById("activityToggle");
+    if (!controls || !pageLayout || !pageCopy || !toggle) return;
+    const mobile = window.matchMedia("(max-width: 760px)").matches;
+    if (mobile) {
+      if (controls.parentElement !== pageCopy) pageCopy.insertBefore(controls, toggle);
+    } else {
+      if (controls.parentElement !== pageLayout.parentElement) {
+        pageLayout.insertAdjacentElement("afterend", controls);
+      }
+    }
+  }
+
   function bindEvents() {
+    positionControlsForMobileActivity();
+    window.addEventListener("resize", positionControlsForMobileActivity);
     const menuToggle = byId("readerMenuToggle");
     const readerMenu = byId("readerMenu");
     const closeReaderMenu = () => {
@@ -242,6 +270,17 @@
       });
     }
 
+    ui.activityToggle.addEventListener("click", () => {
+      const expanded = ui.activityToggle.getAttribute("aria-expanded") !== "true";
+      ui.activityToggle.setAttribute("aria-expanded", String(expanded));
+      ui.activity.classList.toggle("activity-collapsed", !expanded);
+      ui.activityToggle.innerHTML = `${expanded ? "Hide" : "Show"} activity questions <span aria-hidden="true">▾</span>`;
+      if (expanded) {
+        requestAnimationFrame(() => {
+          window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "smooth" });
+        });
+      }
+    });
     ui.next.addEventListener("click", nextPage);
     ui.previous.addEventListener("click", previousPage);
     ui.listen.addEventListener("click", speak);
