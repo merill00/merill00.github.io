@@ -9,7 +9,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{
 .app-shell{min-height:100vh;display:flex;flex-direction:column}
 .topbar{height:68px;padding:0 clamp(14px,4vw,52px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(130,91,69,.12);background:rgba(255,253,248,.8);backdrop-filter:blur(12px)}
 .brand{display:flex;align-items:center;gap:10px;color:var(--red-dark);font-weight:800;text-decoration:none;font-size:1.08rem}
-.brand-mark{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:#f9e1df;font-size:1.3rem}
+.brand-mark{display:block;flex:0 0 auto;width:48px;height:48px;object-fit:contain;border-radius:50%;background:transparent}
 .top-actions{display:flex;gap:10px;align-items:center}
 .menu-toggle{display:none;border:1px solid var(--line);background:#fffdf8;color:var(--ink);border-radius:12px;padding:9px 12px;min-height:42px;font-weight:800;align-items:center;justify-content:center;gap:8px}
 .menu-icon{font-size:1.15rem;line-height:1}
@@ -909,5 +909,40 @@ h1{font:800 clamp(1.8rem,3.6vw,3rem)/1.12 'Playfair Display',Georgia,serif;color
 @media (max-width: 767px) {
   .site-footer {
     display: none !important;
+  }
+}
+@media(max-width:420px){.brand-mark{width:38px;height:38px}}
+
+/* Apps For Christ brand header fix */
+.brand {
+  min-width: 0;
+  flex-shrink: 0;
+  gap: 10px;
+}
+.brand-mark {
+  display: block;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  flex: 0 0 48px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 0;
+  overflow: visible;
+}
+#brandTitle {
+  display: inline !important;
+  white-space: nowrap;
+}
+@media (max-width: 420px) {
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    flex-basis: 38px;
+  }
+  #brandTitle {
+    display: inline !important;
+    font-size: 0.95rem;
   }
 }
