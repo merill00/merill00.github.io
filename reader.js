@@ -25,7 +25,7 @@
       throw new Error("This published story has no pages.");
     }
     document.title = state.story.title || "Storybook Reader";
-    byId("brandTitle").textContent = "Apps For Christ";
+    byId("brandTitle").textContent = state.story.title || "Apps For Christ";
     renderPage();
   }
 
