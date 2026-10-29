@@ -289,7 +289,7 @@
   "schemaVersion": "1.0.0",
   "id": "peter-roboBot",
   "author": "Robyn & Lloyd Merithew",
-  "description": "An illustrated, interactive story for young readers.",
+  "description": "An illustrated, interactive retelling for young readers.",
   "theme": {
     "background": "#fff8ec",
     "accent": "#b92e42",
@@ -323,7 +323,7 @@
   },
   "rearCover": {
     "title": "",
-    "text": "An illustrated, interactive story for young readers.",
+    "text": "",
     "image": "stories/peter-robobot/images/rear-cover.png",
     "alt": "Rear cover illustration",
     "quiz": []
