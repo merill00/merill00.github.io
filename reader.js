@@ -304,12 +304,6 @@
       startX = null; startY = null;
     }, {passive:true});
     window.addEventListener("beforeunload", () => { if ("speechSynthesis" in window) window.speechSynthesis.cancel(); });
-    window.addEventListener("beforeinstallprompt", event => { event.preventDefault(); state.pendingInstall = event; byId("installBtn").classList.remove("hidden"); });
-    byId("installBtn").addEventListener("click", async () => {
-      if (!state.pendingInstall) return;
-      state.pendingInstall.prompt(); await state.pendingInstall.userChoice; state.pendingInstall = null;
-      byId("installBtn").classList.add("hidden");
-    });
   }
 
   async function registerServiceWorker() {
@@ -330,6 +324,117 @@
   }
 
   initReader();
+
+  function setupSmartInstallButton() {
+    const button = byId("installAppBtn");
+    if (!button || button.dataset.installWired === "yes") return;
+    button.dataset.installWired = "yes";
+
+    const dialog = byId("installHelpDialog");
+    const titleElement = byId("installHelpTitle");
+    const introElement = byId("installHelpIntro");
+    const instructions = byId("installHelpInstructions");
+    let deferredInstallPrompt = null;
+
+    const ua = navigator.userAgent || "";
+    const platform = navigator.platform || "";
+    const isIOS = /iPhone|iPad|iPod/i.test(ua) ||
+      (platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    const isSafari = /Safari/i.test(ua) &&
+      !/(Chrome|Chromium|CriOS|Edg|OPR|Firefox|FxiOS|Android)/i.test(ua);
+    const isMac = /Macintosh|Mac OS X/i.test(ua) || /Mac/i.test(platform);
+    const standaloneQuery = window.matchMedia("(display-mode: standalone)");
+
+    function isRunningInstalled() {
+      return standaloneQuery.matches || navigator.standalone === true;
+    }
+
+    function updateInstallVisibility() {
+      button.hidden = isRunningInstalled();
+    }
+
+    function showHelp(title, intro, steps) {
+      const lines = [intro, ...steps.map((step, index) => `${index + 1}. ${step}`)].join("\n");
+      if (titleElement && introElement && instructions && dialog) {
+        titleElement.textContent = title;
+        introElement.textContent = intro;
+        instructions.replaceChildren();
+        const list = document.createElement("ol");
+        steps.forEach(step => {
+          const item = document.createElement("li");
+          item.textContent = step;
+          list.appendChild(item);
+        });
+        instructions.appendChild(list);
+        try {
+          if (typeof dialog.showModal === "function") {
+            dialog.showModal();
+            return;
+          }
+        } catch (error) {
+          console.warn("Could not open install dialog; using alert fallback.", error);
+        }
+      }
+      window.alert(`${title}\n\n${lines}`);
+    }
+
+    updateInstallVisibility();
+    if (typeof standaloneQuery.addEventListener === "function") {
+      standaloneQuery.addEventListener("change", updateInstallVisibility);
+    } else if (typeof standaloneQuery.addListener === "function") {
+      standaloneQuery.addListener(updateInstallVisibility);
+    }
+    window.addEventListener("appinstalled", () => { button.hidden = true; });
+    button.addEventListener("click", async () => {
+      try {
+        if (deferredInstallPrompt) {
+          deferredInstallPrompt.prompt();
+          const result = await deferredInstallPrompt.userChoice;
+          deferredInstallPrompt = null;
+          if (result?.outcome === "accepted") button.textContent = "App Installed";
+          return;
+        }
+        if (isSafari && isMac) {
+          showHelp((state.story && state.story.title) ? state.story.title : "Apps For Christ",
+            "Safari on Mac uses Add to Dock rather than a website-triggered install prompt.",
+            ["With this Reader open in Safari, choose File → Add to Dock from the macOS menu bar.",
+             "Confirm the app name and select Add.",
+             "Open Apps For Christ from the Dock or Applications folder."]);
+        } else if (isIOS) {
+          showHelp("Add Apps For Christ to Home Screen",
+            "On iPhone or iPad, use Safari's Share menu.",
+            ["Tap Share in Safari.", "Choose Add to Home Screen. If offered, enable Open as Web App.", "Tap Add."]);
+        } else {
+          showHelp("Install Apps For Christ",
+            "If your browser supports direct installation, it will provide an install prompt.",
+            ["In Chrome, use the browser's ⋮ menu and choose Install app (or Save and share → Install page).",
+             "If no install option is offered, confirm the site is served over HTTPS and check the browser's installability diagnostics."]);
+        }
+      } catch (error) {
+        console.error("Reader install action failed:", error);
+        showHelp("Install Apps For Christ", "The browser could not open its install prompt.",
+          ["Use the browser menu to install this site if available.", "For Safari on Mac, choose File → Add to Dock."]);
+      }
+    });
+
+    window.addEventListener("beforeinstallprompt", event => {
+      event.preventDefault();
+      deferredInstallPrompt = event;
+      button.textContent = "Install App";
+    });
+    window.addEventListener("appinstalled", () => {
+      button.textContent = "App Installed";
+      button.disabled = true;
+    });
+    byId("closeInstallHelp")?.addEventListener("click", () => dialog?.close());
+    byId("dismissInstallHelp")?.addEventListener("click", () => dialog?.close());
+    dialog?.addEventListener("click", event => {
+      if (event.target === dialog) dialog.close();
+    });
+  }
+
+  setupSmartInstallButton();
+
 })();
 
 
