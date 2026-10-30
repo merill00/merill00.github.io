@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#b92e42">
   <meta name="description" content="An interactive illustrated children's storybook.">
   <title>Storybook Reader</title>
-  <link rel="icon" href="./favicon.ico" sizes="any">
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -21,8 +21,8 @@
         <span class="menu-icon" aria-hidden="true">☰</span><span class="menu-label">Menu</span>
       </button>
       <div class="top-actions" id="readerMenu">
+        <button id="installAppBtn" class="install-app-btn" type="button">Install App</button>
         <button id="printBookBtn" class="quiet-btn" type="button">Print / Save PDF</button>
-        <button id="installBtn" class="quiet-btn hidden" type="button">Install app</button>
       </div>
     </header>
     <main class="book-wrap" id="reader">
@@ -52,6 +52,21 @@
     <footer class="site-footer"><span>Made for little readers</span><span>Reader edition</span></footer>
   </div>
   <script src="reader.js"></script>
+  <script>
+    if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost" || location.hostname === "127.0.0.1")) {
+      window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js").catch(console.error));
+    }
+  </script>
+
+  <dialog id="installHelpDialog" class="install-help-dialog" aria-labelledby="installHelpTitle">
+    <div class="install-help-content">
+      <button id="closeInstallHelp" class="install-help-close" type="button" aria-label="Close installation help">×</button>
+      <h2 id="installHelpTitle">Install Apps For Christ</h2>
+      <p id="installHelpIntro">Add this Reader to your device for quick access.</p>
+      <div id="installHelpInstructions"></div>
+      <button id="dismissInstallHelp" class="install-help-primary" type="button">Got it</button>
+    </div>
+  </dialog>
 <!-- Code injected by live-server -->
 <script>
 	// <![CDATA[  <-- For SVG support
