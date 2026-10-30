@@ -13,7 +13,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{
 .top-actions{display:flex;gap:10px;align-items:center}
 .menu-toggle{display:none;border:1px solid var(--line);background:#fffdf8;color:var(--ink);border-radius:12px;padding:9px 12px;min-height:42px;font-weight:800;align-items:center;justify-content:center;gap:8px}
 .menu-icon{font-size:1.15rem;line-height:1}
-.quiet-btn{border:1px solid var(--line);background:#fffdf8;border-radius:999px;padding:9px 15px;color:var(--ink);font-weight:800}
+.quiet-btn{border:1px solid var(--line);background:#fffdf8;border-radius: 15px;padding:9px 15px;color:var(--ink);font-weight:800}
 .quiet-btn[aria-pressed="true"]{background:#f8e1e1;border-color:#e9b9bf;color:var(--red-dark)}
 .book-wrap{width:100%;padding:clamp(14px,3vw,36px) 14px 20px;flex:1;display:flex;align-items:flex-start;justify-content:center}
 .book{width:min(100%,1100px);background:var(--paper);border:1px solid #f0e6d6;border-radius:24px;box-shadow:var(--shadow);overflow:hidden}
@@ -944,5 +944,112 @@ h1{font:800 clamp(1.8rem,3.6vw,3rem)/1.12 'Playfair Display',Georgia,serif;color
   #brandTitle {
     display: inline !important;
     font-size: 0.95rem;
+  }
+}
+
+
+/* Smart install button */
+.install-app-btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.55rem 0.9rem;
+  font: inherit;
+  font-weight: 650;
+  color: #fff;
+  background: #0758d8;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.install-app-btn[hidden] { display: none !important; }
+.install-help-dialog {
+  width: min(92vw, 440px);
+  border: 0;
+  border-radius: 18px;
+  padding: 0;
+  color: #24212a;
+  box-shadow: 0 18px 60px rgba(0,0,0,.25);
+}
+.install-help-dialog::backdrop { background: rgba(20,20,30,.55); }
+.install-help-content { position: relative; padding: 1.5rem; }
+.install-help-content h2 { margin: 0 2rem .75rem 0; font-size: 1.35rem; }
+.install-help-content p { line-height: 1.5; }
+.install-help-content ol { padding-left: 1.25rem; line-height: 1.65; }
+.install-help-close {
+  position: absolute; top: .65rem; right: .8rem;
+  border: 0; background: transparent; font-size: 1.6rem; cursor: pointer;
+}
+.install-help-primary {
+  border: 0; border-radius: 999px; padding: .7rem 1.1rem;
+  color: white; background: #0758d8; font: inherit; cursor: pointer;
+}
+@media (max-width: 600px) {
+  .install-app-btn { padding: .45rem .65rem; font-size: .85rem; }
+  .install-help-content { padding: 1.25rem; }
+}
+
+
+/* Keep installation action inside the Reader menu on desktop and mobile. */
+#readerMenu .install-app-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  padding: 9px 15px;
+  min-height: 42px;
+  color: var(--ink);
+  background: #fffdf8;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: normal;
+}
+#readerMenu .install-app-btn[hidden] { display: none !important; }
+
+
+
+#printBookBtn.quiet-btn {
+  border-radius: 15px;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+@media (max-width: 760px) {
+  .top-actions #printBookBtn {
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+    border-radius: 15px;
+  }
+}
+
+
+/* Print / Save PDF: keep the complete label on one line and use a
+   horizontal rounded-rectangle button, not a circular/pill control. */
+#printBookBtn {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-width: 132px;
+  max-width: none;
+  min-height: 42px;
+  padding: 9px 16px;
+  border-radius: 14px !important;
+  white-space: nowrap !important;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  flex: 0 0 auto;
+  line-height: 1.2;
+}
+@media (max-width: 760px) {
+  #printBookBtn {
+    width: auto;
+    min-width: 132px;
+    max-width: none;
+    white-space: nowrap !important;
+    flex: 0 0 auto;
   }
 }
